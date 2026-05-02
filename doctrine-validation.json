@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/doctrine/doctrine-validation.json",
+  "title": "DoctrineValidation",
+  "description": "SAIA-Class S schema defining the validation results, structural checks, semantic checks, and consistency guarantees for compiled doctrine in Beast System 3.0.",
+
+  "type": "object",
+
+  "properties": {
+    "validationId": {
+      "type": "string",
+      "description": "Unique identifier for this validation report."
+    },
+
+    "compiledId": {
+      "type": "string",
+      "description": "Identifier of the compiled doctrine artifact being validated."
+    },
+
+    "sourceId": {
+      "type": "string",
+      "description": "Identifier of the doctrine-source.json object used to generate the compiled doctrine."
+    },
+
+    "validatedAt": {
