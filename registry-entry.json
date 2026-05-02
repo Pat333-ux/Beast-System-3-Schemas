@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/registry/registry-entry.json",
+  "title": "RegistryEntry",
+  "description": "SAIA-Class S registry entry representing an immutable or versioned record within the Beast System 3.0 registry fabric.",
+  "type": "object",
+
+  "properties": {
+    "entryId": {
+      "type": "string",
+      "description": "Unique identifier for this registry entry (UUID recommended)."
+    },
+
+    "type": {
+      "type": "string",
+      "description": "Type of registry entry (identity, credential, governance-event, policy, document, etc.)."
+    },
+
+    "version": {
+      "type": "string",
+      "description": "Version label for this entry (semantic, date-based, or sovereign revision code)."
+    },
+
+    "status": {
+      "type": "string",
+      "enum": ["active", "archived", "revoked"],
+      "description": "Operational status of the registry entry."
+    },
+
+    "payload": {
+      "type": "object",
+      "description": "The full content of the record being stored in the registry.",
+      "additionalProperties": true
+    },
+
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the registry entry was created."
+    },
+
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the registry entry was last updated."
+    },
+
+    "createdBy": {
+      "type": "string",
+      "description": "Identity ID of the creator of this entry."
+    },
+
+    "updatedBy": {
+      "type": "string",
+      "description": "Identity ID of the last updater of this entry."
+    },
+
+    "ledgerAnchor": {
+      "type": "string",
+      "description": "Optional blockchain or DAO anchor reference (transaction hash, UUID, or external anchor)."
+    },
+
+    "signature": {
+      "type": "object",
+      "description": "Cryptographic signature proving authenticity and integrity of the registry entry.",
+      "additionalProperties": true
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for domain-specific extensions.",
+      "additionalProperties": true
+    }
+  },
+
+  "required": [
+    "entryId",
+    "type",
+    "version",
+    "status",
+    "payload",
+    "createdAt",
+    "createdBy"
+  ]
+}
