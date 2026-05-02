@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/doctrine/doctrine-source.json",
+  "title": "DoctrineSource",
+  "description": "SAIA-Class S doctrinal source representing raw, uncompiled doctrinal text used by the Doctrine Compiler.",
+  "type": "object",
+
+  "properties": {
+    "sourceId": {
+      "type": "string",
+      "description": "Unique identifier for this doctrinal source (UUID recommended)."
+    },
+
+    "version": {
+      "type": "string",
+      "description": "Version label for this doctrinal source (semantic, date-based, or sovereign revision code)."
+    },
+
+    "title": {
+      "type": "string",
+      "description": "Human-readable title of the doctrinal document."
+    },
+
+    "text": {
+      "type": "string",
+      "description": "Raw doctrinal text exactly as authored. This is the input to the Doctrine Compiler."
+    },
+
+    "author": {
+      "type": "string",
+      "description": "Name or identifier of the doctrinal author (sovereign, delegate, or system)."
+    },
+
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the doctrinal source was created."
+    },
+
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the doctrinal source
