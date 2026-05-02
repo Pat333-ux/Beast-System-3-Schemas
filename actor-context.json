@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/governance/actor-context.json",
+  "title": "ActorContext",
+  "description": "SAIA-Class S actor context representing the identity, roles, and authorities of the actor initiating or triggering a governance decision.",
+  "type": "object",
+
+  "properties": {
+    "identityId": {
+      "type": "string",
+      "description": "Identity ID of the actor."
+    },
+
+    "roles": {
+      "type": "array",
+      "description": "List of role IDs assigned to the actor.",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "authorities": {
+      "type": "array",
+      "description": "List of authority codes assigned to the actor (e.g., SOVEREIGN, DELEGATE, OBSERVER).",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for domain-specific extensions.",
+      "additionalProperties": true
+    }
+  },
+
+  "required": ["identityId", "roles", "authorities"]
+}
