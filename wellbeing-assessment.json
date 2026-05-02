@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/wellbeing/wellbeing-assessment.json",
+  "title": "WellbeingAssessment",
+  "description": "SAIA-Class S wellbeing assessment representing aggregated wellbeing, stability, safety, and risk evaluation for a case within Beast System 3.0.",
+  "type": "object",
+
+  "properties": {
+    "assessmentId": {
+      "type": "string",
+      "description": "Unique identifier for the wellbeing assessment (UUID recommended)."
+    },
+
+    "caseId": {
+      "type": "string",
+      "description": "ID of the wellbeing case this assessment belongs to."
+    },
+
+    "overallScore": {
+      "type": "number",
+      "description": "Aggregated wellbeing score (0–100 recommended)."
+    },
+
+    "overallSeverity": {
+      "type": "string",
+      "enum": ["low", "moderate", "high", "critical"],
+      "description": "Overall severity classification derived from aggregated signals."
+    },
+
+    "domains": {
+      "type": "array",
+      "description": "Domain-level wellbeing evaluations (emotional, safety, economic, relational, etc.).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain name (e.g., emotional, safety, economic)."
+          },
+          "score": {
+            "type": "number",
+            "description": "Domain-specific score (0–100 recommended)."
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["low", "moderate", "high", "critical"],
+            "description": "Domain-specific severity classification."
+          },
+          "trend": {
+            "type": "string",
+            "enum": ["improving", "stable", "declining"],
+            "description": "Trend direction for this domain."
+          },
+          "signals": {
+            "type": "array",
+            "description": "List of wellbeing signal IDs contributing to this domain.",
+            "items": { "type": "string" }
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Optional domain-specific metadata.",
+            "additionalProperties": true
+          }
+        },
+        "required": ["domain", "score", "severity", "trend", "signals"]
+      }
+    },
+
+    "riskFactors": {
+      "type": "array",
+      "description": "List of identified risk factors derived from signals and domain scores.",
+      "items": { "type": "string" }
+    },
+
+    "protectiveFactors": {
+      "type": "array",
+      "description": "List of identified protective factors.",
+      "items": { "type": "string" }
+    },
+
+    "recommendedActions": {
+      "type": "array",
+      "description": "List of recommended non-punitive, trauma-preventive actions.",
+      "items": {
+        "type": "object",
