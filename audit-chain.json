@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/audit/audit-chain.json",
+  "title": "AuditChain",
+  "description": "SAIA-Class S schema defining the immutable, hash-linked audit chain for Beast System 3.0. Ensures chronological integrity, tamper-evidence, and cryptographic continuity of all audit log entries.",
+
+  "type": "object",
+
+  "properties": {
+    "chainId": {
+      "type": "string",
+      "description": "Unique identifier for this audit chain instance."
+    },
+
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the audit chain was initialized."
+    },
+
+    "entries": {
+      "type": "array",
+      "description": "Ordered list of audit log entries forming the immutable chain.",
+      "items": {
+        "$ref": "audit-log-entry.json"
+      }
+    },
+
+    "chainMetadata": {
+      "type": "object",
+      "description": "Metadata describing the chain's configuration and operational parameters.",
+      "properties": {
+        "hashAlgorithm": {
+          "
