@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/system/system-capabilities.json",
+  "title": "SystemCapabilities",
+  "description": "SAIA-Class S capability declaration for Beast System 3.0, defining supported operations, envelopes, constraints, and module-level abilities.",
+
+  "type": "object",
+
+  "properties": {
+    "systemId": {
+      "type": "string",
+      "description": "Unique identifier of the system instance these capabilities apply to."
+    },
+
+    "version": {
+      "type": "string",
+      "description": "Version of the Beast System capability specification."
+    },
+
+    "coreCapabilities": {
+      "type": "object",
+      "description": "High-level capabilities available across the entire system.",
+      "properties": {
+        "supportsRealTimeProcessing": { "type": "boolean" },
+        "supportsBatchProcessing": { "type": "boolean" },
+        "supportsOfflineMode": { "type": "boolean" },
+        "supportsChainAnchoring": { "type": "boolean" },
+        "supportsMultiSig": { "type": "boolean" },
+        "supportsPredictiveScoring": { "type": "boolean" },
+        "supportsWellbeingAnalysis": { "type": "boolean
