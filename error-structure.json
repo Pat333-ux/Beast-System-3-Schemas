@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/system/error-structure.json",
+  "title": "ErrorStructure",
+  "description": "SAIA-Class S universal error structure used across all Beast System 3.0 components.",
+  "type": "object",
+
+  "properties": {
+    "errorId": {
+      "type": "string",
+      "description": "Unique identifier for this error instance (UUID recommended)."
+    },
+
+    "component": {
+      "type": "string",
+      "description": "Subsystem where the error originated (governance-kernel, wellbeing-engine, predictive-engine, registry-service, doctrine-compiler, etc.)."
+    },
+
+    "code": {
+      "type": "string",
+      "description": "Machine-readable error code (e.g., VALIDATION_FAILED, MISSING_FIELD, INVALID_STATE, COMPILATION_ERROR)."
+    },
+
+    "message": {
+      "type": "string",
+      "description": "Human-readable explanation of the error."
+    },
+
+    "severity": {
+      "type": "string",
+      "enum": ["info", "warning", "error", "critical"],
+      "description": "Severity classification of the error."
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the error occurred."
+    },
+
+    "traceId": {
+      "type": "string",
+      "description": "Trace identifier for linking this error to related operations."
+    },
+
+    "context": {
+      "type
