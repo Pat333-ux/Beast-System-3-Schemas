@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/audit/audit-log-entry.json",
+  "title": "AuditLogEntry",
+  "description": "SAIA-Class S audit log entry schema defining the canonical structure for immutable audit events within Beast System 3.0.",
+
+  "type": "object",
+
+  "properties": {
+    "logId": {
+      "type": "string",
+      "description": "Unique identifier for this audit log entry (UUID recommended)."
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the audit event occurred."
+    },
+
+    "actor": {
+      "type": "object",
+      "description": "Information about the actor responsible for the event.",
+      "properties": {
+        "actorId": { "type": "string" },
+        "role": { "type
