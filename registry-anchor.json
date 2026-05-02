@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/registry/registry-anchor.json",
+  "title": "RegistryAnchor",
+  "description": "SAIA-Class S registry anchor representing a cryptographic or ledger-based anchoring reference for registry entries within Beast System 3.0.",
+  "type": "object",
+
+  "properties": {
+    "anchorId": {
+      "type": "string",
+      "description": "Unique identifier for this anchor (UUID recommended)."
+    },
+
+    "entryId": {
+      "type": "string",
+      "description": "ID of the registry entry being anchored."
+    },
+
+    "anchorType": {
+      "type": "string",
+      "description": "Type of anchor (blockchain, dao, hash-chain, external-ledger, sovereign-anchor)."
+    },
+
+    "anchorValue": {
+      "type": "string",
+      "description": "The actual anchor reference (transaction hash, block hash, DAO anchor ID, or external ledger reference)."
+    },
+
+    "payloadHash": {
+      "type": "string",
+      "description": "Hash of the anchored payload (SHA-256 recommended)."
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the anchor was created."
+    },
+
+    "createdBy": {
+      "type": "string",
+      "description": "Identity ID of the actor who created the anchor."
+    },
+
+    "signature": {
+      "type": "object",
+      "description": "Cryptographic signature proving authenticity of the anchor.",
+      "additionalProperties": true
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for domain-specific extensions.",
+      "additionalProperties": true
+    }
+  },
+
+  "required": [
+    "anchorId",
+    "entryId",
+    "anchorType",
+    "anchorValue",
+    "payloadHash",
+    "timestamp",
+    "createdBy"
+  ]
+}
