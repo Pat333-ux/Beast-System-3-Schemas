@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/registry/registry-log.json",
+  "title": "RegistryLogEntry",
+  "description": "SAIA-Class S registry log entry representing an immutable audit record for registry operations within Beast System 3.0.",
+  "type": "object",
+
+  "properties": {
+    "logId": {
+      "type": "string",
+      "description": "Unique identifier for this log entry (UUID recommended)."
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the log entry was created."
+    },
+
+    "operation": {
+      "type": "string",
+      "description": "Type of registry operation (CREATE, UPDATE, ARCHIVE, REVOKE, LINK, ANCHOR)."
+    },
+
+    "entryId": {
+      "type": "string",
+      "description": "ID of the registry entry affected by this operation."
+    },
+
+    "actor
