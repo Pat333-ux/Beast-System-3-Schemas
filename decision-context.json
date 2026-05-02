@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/governance/decision-context.json",
+  "title": "DecisionContext",
+  "description": "SAIA-Class S decision context representing the full state required for sovereign governance decisions within Beast System 3.0.",
+  "type": "object",
+
+  "properties": {
+    "actor": {
+      "type": "object",
+      "description": "Identity and authority of the actor initiating or triggering the decision.",
+      "properties": {
+        "identityId": {
+          "type": "string",
+          "description": "Identity ID of the actor."
+        },
+        "roles": {
+          "type": "array",
+          "description": "Roles assigned to the actor.",
+          "items": { "type": "string" }
+        },
+        "authorities": {
+          "type": "array",
+          "description": "Authority codes assigned to the actor.",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["identityId", "roles", "authorities"]
+    },
+
+    "case": {
+      "type": "object",
+      "description": "Case or scenario being evaluated.",
+      "properties": {
+        "caseId": {
+          "type": "string",
+          "description": "Optional case or event identifier."
+        },
+        "category": {
+          "type": "string",
+          "description": "Case category (e.g., wellbeing, governance, identity)."
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional domain-specific metadata.",
+          "additionalProperties": true
+        }
+      }
+    },
+
+    "environment": {
