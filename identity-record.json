@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/identity/identity-record.json",
+  "title": "IdentityRecord",
+  "description": "SAIA-Class S identity record representing a person, organization, or system identity within the Beast System 3.0 governance architecture.",
+  "type": "object",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Globally unique identifier for this identity record (UUID recommended)."
+    },
+
+    "type": {
+      "type": "string",
+      "enum": ["person", "organization", "system"],
+      "description": "Identity classification."
+    },
+
+    "displayName": {
+      "type": "string",
+      "description": "Human-readable name for the identity."
+    },
+
+    "externalRef": {
+      "type": "string",
+      "description": "Optional external reference ID (registry, DAO address, civic ID, etc.)."
+    },
+
+    "status": {
+      "type": "string",
+      "enum": ["active", "suspended", "revoked"],
+      "description": "Operational status of the identity."
+    },
+
+    "roles": {
+      "type": "array",
+      "description": "Assigned roles for this identity.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "string",
+            "description": "Role identifier."
+          },
+          "authorityCode": {
+            "type": "string",
+            "description": "Authority level code (e.g., SOVEREIGN, DELEGATE, OBSERVER)."
+          },
+          "grantedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the role was granted."
+          },
+          "grantedBy": {
+            "type": "string",
+            "description": "Identity ID of the grantor."
+          }
+        },
+        "required": ["roleId", "authorityCode
