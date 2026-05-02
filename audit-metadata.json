@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/audit/audit-metadata.json",
+  "title": "AuditMetadata",
+  "description": "SAIA-Class S audit metadata envelope providing traceability, integrity, and provenance for all Beast System 3.0 objects.",
+  "type": "object",
+
+  "properties": {
+    "auditId": {
+      "type": "string",
+      "description": "Unique identifier for this audit metadata record (UUID recommended)."
+    },
+
+    "traceId": {
+      "type": "string",
+      "description": "Trace identifier linking this object to a chain of related operations."
+    },
+
+    "parentTraceId": {
+      "type": "string",
+      "description": "Optional parent trace identifier for hierarchical audit chains."
+    },
+
+    "actorId": {
+      "type": "string",
+      "description": "Identity ID of the actor responsible for the operation."
+    },
+
+    "component": {
+      "type": "string",
+      "description": "Subsystem that produced the audited object (governance-kernel, registry-service, wellbeing-engine, predictive-engine, doctrine-compiler, etc.)."
+    },
+
+    "operation": {
+      "type": "string",
+      "description": "Operation performed (CREATE, UPDATE, EVALUATE, COMPILE
