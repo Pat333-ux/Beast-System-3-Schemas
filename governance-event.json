@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/governance/governance-event.json",
+  "title": "GovernanceEvent",
+  "description": "SAIA-Class S governance event representing an action, request, or state transition within the Beast System 3.0 governance architecture.",
+  "type": "object",
+
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "description": "Unique identifier for the governance event (UUID recommended)."
+    },
+
+    "eventType": {
+      "type": "string",
+      "description": "Type of governance event (e.g., DECISION_REQUESTED, DECISION_ISSUED, POLICY_UPDATED, IDENTITY_CHANGED)."
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the event occurred."
+    },
+
+    "actor": {
+      "type": "object",
+      "description": "Snapshot of the actor context at the time of the event.",
+      "additionalProperties": true
+    },
+
+    "case": {
+      "type": "object",
+      "description": "Snapshot of the case context at the time of the event.",
+      "additionalProperties": true
+    },
+
+    "environment": {
+      "type": "object",
+      "description": "Snapshot of the environment context at the time of the event.",
+      "additionalProperties": true
+    },
+
+    "payload": {
+      "type": "object",
+      "description": "Event-specific payload (decision request, policy update, identity change, etc.).",
+      "additionalProperties
