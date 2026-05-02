@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/wellbeing/harm-prevention.json",
+  "title": "HarmPrevention",
+  "description": "SAIA-Class S schema defining non-punitive, trauma-preventive harm prevention logic used by the Wellbeing Engine to reduce risk, increase stability, and protect dignity.",
+
+  "type": "object",
+
+  "properties": {
+    "preventionId": {
+      "type": "string",
+      "description": "Unique identifier for this harm-prevention evaluation."
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when harm-prevention logic was applied."
+    },
+
+    "wellbeingAssessment": {
+      "$ref": "wellbeing-assessment.json",
+      "description": "Wellbeing assessment used to determine harm-prevention needs."
+    },
+
+    "riskScan": {
+      "$ref": "risk-scan.json",
+      "description": "Risk scan data used to identify potential harm patterns."
+    },
+
+    "forecast": {
+      "$ref": "forecast-output.json",
+      "description": "Predictive forecast used to determine stability and risk trends."
+    },
+
+    "preventiveActions": {
+      "type": "array",
+      "description": "List of preventive actions recommended to reduce harm and increase stability.",
+      "items
