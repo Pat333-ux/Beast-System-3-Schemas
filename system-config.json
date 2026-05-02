@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/system/system-config.json",
+  "title": "SystemConfig",
+  "description": "SAIA-Class S system configuration schema defining operational modes, enabled modules, security envelopes, audit behavior, and integration settings for Beast System 3.0.",
+
+  "type": "object",
+
+  "properties": {
+    "systemId": {
+      "type": "string",
+      "description": "Unique identifier for the system instance."
+    },
+
+    "version": {
+      "type": "string",
+      "description": "Version of the Beast System configuration."
+    },
+
+    "operationalMode": {
+      "type": "string",
+      "enum": ["production", "staging", "development", "diagnostic"],
+      "description": "Defines the active operational mode of the system."
+    },
+
+    "modules": {
+      "type": "object",
+      "description": "Enables or disables core system modules.",
+      "properties": {
+        "identity": { "type": "boolean" },
+        "governance": { "type": "boolean" },
+        "doctrine": { "type": "boolean" },
+        "predictive": { "type": "boolean" },
+        "wellbeing": { "type": "boolean" },
+        "registry": { "type": "boolean" },
+        "audit": { "type": "boolean" }
+      },
+      "required": [
+        "identity",
+        "governance",
+        "doctrine",
+        "predictive",
+        "wellbeing",
+        "registry",
+        "audit"
+      ]
+    },
+
+    "security": {
+      "type": "object",
+      "description": "Security envelope and enforcement settings.",
+      "properties": {
+        "encryption": {
+          "type": "string",
+          "enum": ["AES-256", "ChaCha20", "None"],
+          "description": "Encryption standard
