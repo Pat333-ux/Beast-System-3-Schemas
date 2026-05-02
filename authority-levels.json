@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/identity/authority-levels.json",
+  "title": "AuthorityLevels",
+  "description": "SAIA-Class S authority hierarchy defining sovereign, delegated, and observer authority levels within Beast System 3.0.",
+  "type": "object",
+
+  "properties": {
+    "levels": {
+      "type": "array",
+      "description": "Ordered list of authority levels from highest to lowest.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Authority code (e.g., SOVEREIGN, DOCTRINAL, DELEGATE, OBSERVER)."
+          },
+          "rank": {
+            "type": "number",
+            "description": "Numeric rank for ordering (higher = more authority)."
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable name of the authority level."
+          },
+          "description": {
+            "type": "string",
+            "description": "Explanation of the authority level's scope and powers."
+          },
+          "permissions": {
+            "type": "array",
+            "description": "Optional list of permissions granted at this authority level.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Optional metadata for domain-specific extensions.",
+            "additionalProperties": true
+          }
+        },
+        "required": ["code", "rank", "name"]
+      }
+    }
+  },
+
+  "required": ["levels"]
+}
