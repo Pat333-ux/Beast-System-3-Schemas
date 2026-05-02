@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/registry/registry-index.json",
+  "title": "RegistryIndex",
+  "description": "SAIA-Class S schema defining the master index of all registry entries, anchors, chains, and lineage mappings within the Beast System 3.0 Registry Fabric.",
+
+  "type": "object",
+
+  "properties": {
+    "indexId": {
+      "type": "string",
+      "description": "Unique identifier for this registry index instance."
+    },
+
+    "version": {
+      "type": "string",
+      "description": "Version of the registry index schema."
+    },
+
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this index was generated."
+    },
+
+    "entries": {
+      "type": "array",
+      "description": "List of all registry entries known to the system.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "entryId": { "type": "string" },
+          "entryType": { "type": "string" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" },
+          "anchor": { "$ref": "registry-anchor.json" },
+          "hash": { "type": "string" }
+        },
+        "required": ["entryId", "entryType", "createdAt"]
+      }
+    },
+
+    "anchors": {
+      "type": "array",
+      "description": "List of all registry anchors used for blockchain or ledger binding.",
+      "items": {
+        "$ref": "registry-anchor.json"
+      }
+    },
+
+    "chains": {
+      "type": "array",
+      "description": "List of registry chains (audit chains, document chains, identity chains, etc.).",
+      "items": {
+        "$ref": "registry-chain.json"
+      }
+    },
+
+    "lineage": {
+      "type": "object",
+      "description": "Cross-domain lineage mapping (municipal → county → state → federal
