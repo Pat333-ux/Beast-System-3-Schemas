@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/doctrine/doctrine-rule.json",
+  "title": "DoctrineRule",
+  "description": "SAIA-Class S compiled doctrinal rule defining sovereign constraints, conditions, and actions within Beast System 3.0.",
+  "type": "object",
+
+  "properties": {
+    "ruleId": {
+      "type": "string",
+      "description": "Unique identifier for the doctrinal rule."
+    },
+
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the rule."
+    },
+
+    "description": {
+      "type": "string",
+      "description": "Optional doctrinal annotation or explanation."
+    },
+
+    "priority": {
+      "type": "number",
+      "description": "Evaluation priority (lower = earlier)."
+    },
+
+    "conditions": {
+      "type": "object",
+      "description": "Condition AST or structured logic defining when the rule applies.",
+      "additionalProperties": true
+    },
+
+    "actions": {
+      "type": "object",
+      "description": "Action AST or structured logic defining what happens when conditions are met.",
+      "additionalProperties": true
+    },
+
+    "sourceId": {
+      "type": "string",
+      "description": "ID of the doctrine source this rule was compiled from."
+    },
+
+    "compiledAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the rule was compiled."
+    },
+
+    "warnings": {
+      "type": "array",
+      "description": "Non-fatal issues detected during compilation.",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for domain-specific extensions.",
+      "additionalProperties": true
+    }
+  },
+
+  "required": [
+    "ruleId",
+    "name",
+    "priority",
+    "conditions",
+    "actions",
+    "sourceId",
+    "compiledAt"
+  ]
+}
