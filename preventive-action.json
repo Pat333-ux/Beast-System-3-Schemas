@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/predictive/forecast-output.json",
+  "title": "ForecastOutput",
+  "description": "SAIA-Class S schema defining the predictive engine's final forecast output, including risk levels, stability projections, wellbeing impacts, and recommended focus areas.",
+
+  "type": "object",
+
+  "properties": {
+    "forecastId": {
+      "type": "string",
+      "description": "Unique identifier for this forecast output."
+    },
+
+    "inputId": {
+      "type": "string",
+      "description": "Identifier of the prediction-input.json or risk-scan.json that generated this forecast."
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the forecast was generated."
+    },
+
+    "riskScore": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Normalized risk score representing likelihood of harm or instability."
+    },
+
+    "riskFactors": {
+      "type": "array",
+      "description": "List of contributing factors influencing the risk score.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "factor": { "type": "string" },
+          "weight": { "type": "number" },
+          "description": { "type": "string" }
+        },
+        "required": ["factor", "weight"]
+      }
+    },
+
+    "stabilityProjection": {
+      "type": "object",
+      "description": "Projection of system or scenario stability over time.",
+      "properties": {
+        "shortTerm": { "type": "number", "minimum": 0, "maximum": 1 },
+        "mediumTerm": { "type": "number", "minimum": 0, "maximum": 1 },
+        "longTerm": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "required": ["shortTerm", "mediumTerm", "longTerm"]
+    },
+
+    "wellbeingImpact": {
+      "type": "object",
+      "description": "Predicted impact on wellbeing domains.",
+      "properties": {
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "domain": { "type": "string" },
+              "impactLevel": { "type": "number", "minimum": -1, "maximum": 1 },
+              "description": { "type": "string" }
+            },
+            "required": ["domain", "impactLevel"]
+          }
+        }
+      }
+    },
+
+    "doctrineInfluence": {
+      "type": "array",
+      "description": "List of doctrinal rules that influenced the forecast.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ruleId": { "type": "string" },
+          "category": { "type": "string" },
+          "priority": { "type": "integer" }
+        },
+        "required": ["ruleId", "category", "priority"]
+      }
+    },
+
+    "recommendedFocusAreas": {
+      "type": "array",
+      "description": "Non-punitive focus areas for prevention, support, or stabilization.",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence level of the forecast based on available data."
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for traceability and auditability.",
+      "additionalProperties": true
+    }
+  },
+
+  "required": [
+    "forecastId",
+    "inputId",
+    "timestamp",
+    "riskScore",
+    "stabilityProjection",
+    "confidence"
+  ]
+}
