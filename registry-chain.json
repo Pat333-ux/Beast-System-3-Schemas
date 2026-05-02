@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/registry/registry-chain.json",
+  "title": "RegistryChain",
+  "description": "SAIA-Class S schema defining the immutable, hash-linked registry chain for Beast System 3.0, ensuring chronological integrity, tamper-evidence, and cross-domain lineage continuity.",
+
+  "type": "object",
+
+  "properties": {
+    "chainId": {
+      "type": "string",
+      "description": "Unique identifier for this registry chain instance."
+    },
+
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the registry chain was initialized."
+    },
+
+    "entries": {
+      "type": "array",
+      "description": "Ordered list of registry log entries forming the immutable chain.",
+      "items": {
+        "$ref": "registry-log.json"
+      }
+    },
+
+    "chainMetadata": {
+      "type": "object",
+      "description": "Metadata describing the chain's configuration and operational parameters.",
+      "properties": {
+        "hashAlgorithm": {
+          "type": "string",
+          "enum": ["SHA-256", "SHA3-256", "BLAKE3"],
+          "description": "Hash algorithm used to link registry entries."
+        },
+        "signatureAlgorithm": {
+          "type": "string",
+          "enum": ["Ed25519", "secp256k1", "RSA-4096"],
+          "description": "Signature algorithm used to verify chain integrity."
+        },
+        "anchoringStrategy": {
