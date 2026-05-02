@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/governance/environment-context.json",
+  "title": "EnvironmentContext",
+  "description": "SAIA-Class S environment context representing the situational metadata required for governance decisions within Beast System 3.0.",
+  "type": "object",
+
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the decision or event was initiated."
+    },
+
+    "jurisdiction": {
+      "type": "string",
+      "description": "Optional jurisdiction label (e.g., city, state, region, DAO zone)."
+    },
+
+    "channel": {
+      "type": "string",
+      "description": "Optional channel through which the decision was triggered (API, UI, automated, system, etc.)."
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for domain-specific or environmental extensions.",
+      "additionalProperties": true
+    }
+  },
+
+  "required": ["timestamp"]
+}
