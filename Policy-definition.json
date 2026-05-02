@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/governance/policy-definition.json",
+  "title": "PolicyDefinition",
+  "description": "SAIA-Class S policy definition describing operational governance rules within Beast System 3.0.",
+  "type": "object",
+
+  "properties": {
+    "policyId": {
+      "type": "string",
+      "description": "Unique identifier for the policy."
+    },
+
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the policy."
+    },
+
+    "description": {
+      "type": "string",
+      "description": "Optional description of the policy's purpose and scope."
+    },
+
+    "version": {
+      "type": "string",
+      "description": "Version label (semantic, date-based, or sovereign revision code)."
+    },
+
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether this policy is currently active."
+    },
+
+    "rules": {
+      "type": "array",
+      "description": "List of rule definitions contained within this policy.",
+      "items": {
+        "type
