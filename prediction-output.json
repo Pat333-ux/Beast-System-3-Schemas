@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/predictive/prediction-output.json",
+  "title": "PredictionOutput",
+  "description": "SAIA-Class S predictive governance output representing stability forecasts, harm-prevention indicators, and recommended preventive actions.",
+  "type": "object",
+
+  "properties": {
+    "outputId": {
+      "type": "string",
+      "description": "Unique identifier for this prediction output (UUID recommended)."
+    },
+
+    "inputId": {
+      "type": "string",
+      "description": "ID of the prediction input that produced this output."
+    },
+
+    "caseId": {
+      "type": "string",
+      "description": "ID of the case being evaluated."
+    },
+
+    "stabilityScore": {
+      "type": "number",
+      "description": "Predicted stability score (0–100 recommended)."
+    },
+
+    "riskLevel": {
+      "type": "string",
+      "enum": ["low", "moderate", "high", "critical"],
+      "description": "Predicted risk classification based on signals and trends."
+    },
+
+    "trend": {
+      "type": "string",
+      "enum": ["improving", "stable", "declining"],
+      "description": "Predicted direction of wellbeing or stability."
+    },
+
+    "forecast": {
+      "type": "object",
+      "description": "Detailed forecast object containing model-specific projections.",
+      "additionalProperties": true
+    },
+
+    "recommendedActions": {
+      "type": "array",
+      "description": "List of recommended non-punitive, trauma-preventive actions.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "actionId": {
+            "type": "string",
+            "description": "Unique identifier for the recommended action."
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable description of the action."
+          },
+          "priority": {
+            "type": "number",
+            "description": "Priority of the action (lower = earlier)."
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Optional metadata for action-specific extensions.",
+            "additionalProperties": true
+          }
+        },
+        "required": ["action
