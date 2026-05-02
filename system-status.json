@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/system/system-status.json",
+  "title": "SystemStatus",
+  "description": "SAIA-Class S runtime status schema describing the current operational state, module health, performance metrics, and active envelopes for Beast System 3.0.",
+
+  "type": "object",
+
+  "properties": {
+    "systemId": {
+      "type": "string",
+      "description": "Unique identifier of the running system instance."
+    },
+
+    "version": {
+      "type": "string",
+      "description": "Current running version of the Beast System."
+    },
+
+    "uptimeSeconds": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total uptime of the system in seconds."
+    },
+
+    "operationalState": {
+      "type": "string",
+      "enum": ["initializing", "running", "degraded", "paused", "error", "shutdown"],
+      "description": "Current operational state of the system."
+    },
+
+    "moduleStatus": {
+      "type": "object",
+      "description": "Health and activity status of each core module.",
+      "properties": {
+        "identity": {
+          "type": "string",
+          "enum": ["active", "inactive", "error"],
+          "description": "Identity module status."
+        },
+        "governance": {
+          "type": "string",
+          "enum": ["active", "inactive", "error"],
+          "description": "Governance kernel status."
+        },
+        "doctrine": {
+          "type": "string",
+          "enum": ["active", "inactive", "error"],
+          "description": "Doctrine engine status."
+        },
+        "predictive": {
+          "type": "string",
