@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/predictive/risk-scan.json",
+  "title": "RiskScan",
+  "description": "SAIA-Class S schema defining the predictive engine's risk scan input envelope, including actor, context, signals, wellbeing factors, and doctrinal constraints.",
+
+  "type": "object",
+
+  "properties": {
+    "scanId": {
+      "type": "string",
+      "description": "Unique identifier for this risk scan request."
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the scan was initiated."
+    },
+
+    "actorContext": {
+      "$ref": "actor-context.json",
+      "description": "Information about the actor whose behavior or action is being evaluated."
+    },
+
+    "decisionContext": {
+      "$ref": "decision-context.json",
+      "description": "Context of the decision or action being evaluated for risk."
+    },
+
+    "environmentContext": {
+      "$ref": "enviroment-context.json",
+      "description
