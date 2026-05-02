@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/identity/role-definition.json",
+  "title": "RoleDefinition",
+  "description": "SAIA-Class S role definition describing a governance or operational role within Beast System 3.0.",
+  "type": "object",
+
+  "properties": {
+    "roleId": {
+      "type": "string",
+      "description": "Unique identifier for the role."
+    },
+
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the role."
+    },
+
+    "description": {
+      "type": "string",
+      "description": "Optional description of the role's purpose and scope."
+    },
+
+    "authorityLevel": {
+      "type": "string",
+      "description": "Authority code associated with this role (e.g., SOVEREIGN, DELEGATE, OBSERVER)."
+    },
+
+    "permissions": {
+      "type": "array",
+      "description": "List of permissions granted by this role.",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "tags": {
+      "type": "array",
+      "description": "Optional classification tags for grouping or filtering roles.",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the role definition was created."
+    },
+
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the role definition was last updated."
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for domain-specific extensions.",
+      "additionalProperties": true
+    }
+  },
+
+  "required": [
+    "roleId",
+    "name",
+    "authorityLevel",
+    "permissions",
+    "createdAt",
+    "updatedAt"
+  ]
+}
