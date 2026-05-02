@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/governance/governance-decision.json",
+  "title": "GovernanceDecision",
+  "description": "SAIA-Class S governance decision produced by the Governance Kernel after evaluating doctrine, policies, identity, wellbeing, and predictive signals.",
+  "type": "object",
+
+  "properties": {
+    "decisionId": {
+      "type": "string",
+      "description": "Unique identifier for the governance decision (UUID recommended)."
+    },
+
+    "allowed": {
+      "type": "boolean",
+      "description": "Whether the requested action is permitted."
+    },
+
+    "reasons": {
+      "type": "array",
+      "description": "Human-readable explanations for the decision outcome.",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "appliedPolicies": {
+      "type": "array",
+      "description": "List of policy IDs applied during evaluation
