@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/system/system-metadata.json",
+  "title": "SystemMetadata",
+  "description": "SAIA-Class S system metadata envelope providing universal metadata fields for all Beast System 3.0 components.",
+  "type": "object",
+
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "description": "Version of the schema used by this object (semantic or sovereign revision code)."
+    },
+
+    "systemVersion": {
+      "type": "string",
+      "description": "Version of Beast System 3.0 that produced this object."
+    },
+
+    "component": {
+      "type": "string",
+      "description": "Name of the subsystem that produced this object (governance-kernel, wellbeing-engine, predictive-engine, registry-service, doctrine-compiler, etc.)."
+    },
+
+    "origin": {
+      "type": "string",
+      "description": "Origin of the object (system, actor, automated-process, external-source)."
+    },
+
+    "traceId": {
+      "type": "string",
+      "description": "Trace identifier for linking related operations across subsystems."
+    },
+
+    "requestId": {
+      "type": "string",
+      "description": "Optional request identifier for correlating user or system requests."
+    },
+
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this object was created."
+    },
+
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this object was last updated."
+    },
+
+    "tags": {
+      "type": "array",
+      "description": "Optional classification tags for filtering, grouping, or indexing.",
+      "items
