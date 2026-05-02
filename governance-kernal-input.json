@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/governance/governance-kernel-input.json",
+  "title": "GovernanceKernelInput",
+  "description": "SAIA-Class S schema defining the canonical input envelope for the Governance Kernel, including actor, context, doctrine, predictive signals, wellbeing constraints, and target information.",
+
+  "type": "object",
+
+  "properties": {
+    "inputId": {
+      "type": "string",
+      "description": "Unique identifier for this governance kernel input envelope."
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the input was generated."
+    },
+
+    "actorContext": {
+      "$ref": "actor-context.json",
+      "description": "Information about the actor initiating the governance action."
+    },
+
+    "decisionContext": {
+      "$ref": "decision-context.json",
+      "description": "Operational decision context including purpose, scope, and parameters."
+    },
+
+    "environmentContext": {
+      "$ref": "enviroment-context.json",
+      "description": "Environmental and situational context relevant to the decision."
+    },
+
+    "policyContext": {
+      "$ref": "policy-definition.json",
+      "description": "Policy definition or policy set relevant to the decision."
+    },
+
+    "doctrine": {
+      "type": "object",
+      "description": "Compiled doctrinal rules and validation results.",
