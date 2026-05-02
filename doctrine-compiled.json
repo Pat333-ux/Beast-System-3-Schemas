@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/doctrine/doctrine-compiled.json",
+  "title": "CompiledDoctrine",
+  "description": "SAIA-Class S schema defining the fully compiled, validated, and enforcement-ready doctrinal rule set for Beast System 3.0.",
+
+  "type": "object",
+
+  "properties": {
+    "compiledId": {
+      "type": "string",
+      "description": "Unique identifier for this compiled doctrine artifact."
+    },
+
+    "sourceId": {
+      "type": "string",
+      "description": "Identifier of the doctrine-source.json object used to generate this compiled doctrine."
+    },
+
+    "version": {
+      "type": "string",
+      "description": "Version of the compiled doctrine."
+    },
+
+    "compiledAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the doctrine was compiled."
+    },
+
+    "rules": {
+      "type": "array",
+      "description": "List of compiled doctrinal rules ready for enforcement.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ruleId": { "type": "string" },
+          "category": { "type": "string" },
+          "priority": { "
