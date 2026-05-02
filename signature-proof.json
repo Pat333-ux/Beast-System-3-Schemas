@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/identity/signature-proof.json",
+  "title": "SignatureProof",
+  "description": "SAIA-Class S cryptographic signature proof used for credentials, identity verification, registry anchoring, and document authenticity within Beast System 3.0.",
+  "type": "object",
+
+  "properties": {
+    "algorithm": {
+      "type": "string",
+      "description": "Signature algorithm used (e.g., SHA-256, Ed25519, secp256k1)."
+    },
+
+    "value": {
+      "type": "string",
+      "description": "Base64 or hex-encoded signature value."
+    },
+
+    "publicKey": {
+      "type": "string",
+      "description": "Public key associated with the signature (hex or base58)."
+    },
+
+    "signedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the signature was generated."
+    },
+
+    "payloadHash": {
+      "type": "string",
+      "description": "Hash of the signed payload (SHA-256 recommended)."
+    },
+
+    "issuerId": {
+      "type": "string",
+      "description": "Identity ID of the signer (sovereign, delegate, or system)."
+    },
+
+    "verificationMethod": {
+      "type": "string",
+      "description": "Method or key reference used to verify the signature (e.g., DID URL, DAO registry key)."
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for domain-specific extensions.",
+      "additionalProperties": true
+    }
+  },
+
+  "required": [
+    "algorithm",
+    "value",
