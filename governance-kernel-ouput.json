@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/governance/governance-kernel-output.json",
+  "title": "GovernanceKernelOutput",
+  "description": "SAIA-Class S schema defining the canonical output envelope produced by the Governance Kernel after evaluating doctrine, policies, identity, predictive signals, wellbeing constraints, and environmental context.",
+
+  "type": "object",
+
+  "properties": {
+    "outputId": {
+      "type": "string",
+      "description": "Unique identifier for this governance kernel output envelope."
+    },
+
+    "inputId": {
+      "type": "string",
+      "description": "Identifier of the corresponding governance-kernel-input.json object."
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the decision was produced."
+    },
+
+    "decision": {
+      "$ref": "governance -decision.json",
+      "description": "The final governance decision object produced by the kernel."
+    },
+
+    "appliedDoctrine": {
+      "type": "array",
+      "description": "List of doctrinal rules applied during evaluation.",
+      "items": {
