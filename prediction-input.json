@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/predictive/prediction-input.json",
+  "title": "PredictionInput",
+  "description": "SAIA-Class S prediction input representing the full state required for predictive governance forecasting within Beast System 3.0.",
+  "type": "object",
+
+  "properties": {
+    "inputId": {
+      "type": "string",
+      "description": "Unique identifier for this prediction input (UUID recommended)."
+    },
+
+    "caseId": {
+      "type": "string",
+      "description": "ID of the case being evaluated."
+    },
+
+    "actor": {
+      "type": "object",
+      "description": "Snapshot of the actor context at prediction time.",
+      "additionalProperties": true
+    },
+
+    "environment": {
+      "type": "object",
+      "description": "Snapshot of the environment context at prediction time.",
+      "additionalProperties": true
+    },
+
+    "wellbeingSignals": {
+      "type": "array",
+      "description": "List of wellbeing signal objects or signal IDs relevant to the prediction.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+
+    "recentEvents": {
+      "type": "array",
+      "description": "List of recent governance or wellbeing events relevant to forecasting.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+
+    "actionDescription": {
+      "type": "string",
+      "description": "Natural-language description of the proposed or observed action being evaluated."
+    },
+
+    "parameters": {
+      "type": "object",
+      "description": "Optional model parameters or overrides for prediction tuning.",
+      "additionalProperties": true
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for domain-specific extensions.",
+      "additionalProperties": true
+    }
+  },
+
+  "required": [
+    "inputId",
+    "caseId",
+    "actor",
+    "environment",
+    "wellbeingSignals",
+    "actionDescription"
+  ]
+}
