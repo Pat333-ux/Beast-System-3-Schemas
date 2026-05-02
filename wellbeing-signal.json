@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/wellbeing/wellbeing-signal.json",
+  "title": "WellbeingSignal",
+  "description": "SAIA-Class S wellbeing signal representing a measurable indicator of wellbeing, stability, safety, or risk within Beast System 3.0.",
+  "type": "object",
+
+  "properties": {
+    "signalId": {
+      "type": "string",
+      "description": "Unique identifier for the wellbeing signal (UUID recommended)."
+    },
+
+    "caseId": {
+      "type": "string",
+      "description": "ID of the wellbeing case this signal belongs to."
+    },
+
+    "category": {
+      "type": "string",
+      "description": "Signal category (emotional, environmental, safety, economic, relational, identity, digital, etc.)."
+    },
+
+    "type": {
+      "type": "string",
+      "description": "Specific signal type (e.g., emotional-regulation, housing-stability, food-security, burnout-risk)."
+    },
+
+    "value": {
+      "type": "number",
+      "description": "Numeric value of the signal (0–100 recommended)."
+    },
+
+    "severity": {
+      "type": "string",
+      "enum": ["low", "moderate", "high", "critical"],
+      "description": "Severity classification of the signal."
+    },
+
+    "trend": {
+      "type": "string",
+      "enum": ["improving", "stable", "declining"],
+      "description": "Trend direction of the signal over time."
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the signal was recorded."
+    },
+
+    "source": {
+      "type": "string",
+      "description": "Origin of the signal (system, actor, wellbeing-engine, predictive-engine, manual-input)."
+    },
+
+    "metadata": {
