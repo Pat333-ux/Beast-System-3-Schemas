@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/wellbeing/wellbeing-model.json",
+  "title": "WellbeingModel",
+  "description": "SAIA-Class S schema defining the full wellbeing model used by Beast System 3.0, including domains, indicators, scoring envelopes, and trauma-preventive constraints.",
+
+  "type": "object",
+
+  "properties": {
+    "modelId": {
+      "type": "string",
+      "description": "Unique identifier for this wellbeing model instance."
+    },
+
+    "version": {
+      "type": "string",
+      "description": "Version of the wellbeing model."
+    },
+
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this wellbeing model was created."
+    },
+
+    "domains": {
+      "type": "array",
+      "description": "List of wellbeing domains (21-division architecture).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "domainId": { "type": "string" },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+
+          "indicators": {
+            "type": "array",
+            "description": "Measurable indicators within this domain.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "indicatorId": { "type": "string" },
+                "name": { "type": "string" },
+                "description": { "type": "string" },
+                "weight": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "Relative weight of this indicator in domain scoring."
+                },
+                "scoring": {
+                  "type": "object",
+                  "description": "
